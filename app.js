@@ -38,10 +38,10 @@ let pageSize = 10;
 
 const getNews = (language = "en", pageSize = "10", searchIn=" ") => {
     fetch("https://newsapi.org/v2/everything" +
-    "?q=bitcoin" +
+    `?q=${searchIn}` +
     `&language=${language}` +
     `&pageSize=${pageSize}` +
-    "&apiKey=1eb165f1b11b4aa987ba90ec822184e3"
+    `&apiKey=${APIKEY}`
     )
     .then(res => res.json())
     .then(data => {
@@ -80,6 +80,9 @@ pageSizeSelection.addEventListener("change", (ev) =>{
 })
 
 searchButton.addEventListener("click", (ev) =>{
+    console.log("here");
+    console.log(searchInput.value);
+
     searchIn = searchInput.value;
     getNews(language, pageSize, searchIn)
 })
