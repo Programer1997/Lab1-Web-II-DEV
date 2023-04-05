@@ -36,7 +36,7 @@ let searchIn = "";
 let language = 'en';
 let pageSize = 10;
 
-const getNews = (language = "en", pageSize = "10") => {
+const getNews = (language = "en", pageSize = "10", searchIn=" ") => {
     fetch("https://newsapi.org/v2/everything" +
     "?q=bitcoin" +
     `&language=${language}` +
@@ -81,7 +81,7 @@ pageSizeSelection.addEventListener("change", (ev) =>{
 
 searchButton.addEventListener("click", (ev) =>{
     searchIn = searchInput.value;
-    getNews(language, pageSize)
+    getNews(language, pageSize, searchIn)
 })
 
 getNews(language, pageSize)
