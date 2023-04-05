@@ -29,6 +29,7 @@ const pageSizeSelection = document.querySelector("#pageSize");
 
 const searchInput = document.querySelector('#search-text');
 const searchButton = document.querySelector('#search-btn');
+let searchIn = "";
 
 //Abraham code End ////////////////
 
@@ -79,7 +80,7 @@ pageSizeSelection.addEventListener("change", (ev) =>{
 })
 
 searchButton.addEventListener("click", (ev) =>{
-    pageSize = ev.target.value;
+    searchIn = searchInput.value;
     getNews(language, pageSize)
 })
 
